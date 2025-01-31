@@ -115,15 +115,7 @@
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" id="mobileMenuToggle">
           <i class="bi bi-menu-button-fill"></i>
         </button>
 
@@ -309,6 +301,18 @@
       <p>Copyright © 2025 Fairdebt Solutions Private Limited | All Rights Reserved.</p>
     </footer>
     <!-- footer section ends here -->
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+      document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+        let navMenu = document.getElementById("navbarNav");
+        if (navMenu.classList.contains("show")) {
+          navMenu.classList.remove("show");
+        } else {
+          navMenu.classList.add("show");
+        }
+      });
+    </script>
 
     <!-- bootstrap javascript cdn link  -->
     <script
