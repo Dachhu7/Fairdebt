@@ -79,214 +79,226 @@
     </section>
 
     <!-- Career Form -->
-    <section class="container">
-      <h2 class="text-center mb-5">Join Our Team</h2>
-      <form id="careerForm">
-        <div class="row gy-4">
-          <div class="col-md-6">
-            <label class="form-label">Full Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Position Applied For</label>
-            <input type="text" id="position" class="form-control" placeholder="Enter the position" required>
-          </div>
-          <div class="col-md-12">
-            <label class="form-label">Upload CV</label>
-            <input type="file" id="cv" class="form-control" accept=".pdf,.doc,.docx" required>
-          </div>
-          <div class="col-md-12 text-center mb-4">
-            <button type="submit" class="btn btn-primary">Submit Application</button>
-          </div>
-        </div>
-      </form>
-    </section>
-
-    <!-- Success Message Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Application Submitted</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            Your application has been sent successfully. HR will contact you soon.
-          </div>
-        </div>
+<section class="container">
+  <h2 class="text-center mb-5">Join Our Team</h2>
+  <form id="careerForm">
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <label class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Position Applied For</label>
+        <input type="text" id="position" class="form-control" placeholder="Enter the position" required>
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Upload CV</label>
+        <input type="file" id="cv" class="form-control" accept=".pdf,.doc,.docx" required>
+      </div>
+      <div class="col-md-12 text-center mb-4">
+        <button type="submit" class="btn btn-primary">Submit Application</button>
       </div>
     </div>
+  </form>
+</section>
 
-    <!-- JavaScript -->
-    <script>
-      emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
-
-      document.getElementById("careerForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const position = document.getElementById("position").value;
-        const cv = document.getElementById("cv").files[0];
-
-        if (!cv) {
-          alert("Please upload a CV.");
-          return;
-        }
-
-        const reader = new FileReader();
-        reader.onload = function () {
-          const base64CV = reader.result.split(",")[1];
-
-          const templateParams = {
-            to_email: "hr@fairdebt.in",
-            from_name: name,
-            from_email: email,
-            phone: phone,
-            position: position,
-            cv_filename: cv.name,
-            cv_data: base64CV,
-          };
-
-          emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-            .then(function () {
-              new bootstrap.Modal(document.getElementById("successModal")).show();
-              document.getElementById("careerForm").reset();
-            })
-            .catch(function (error) {
-              console.error("EmailJS Error:", error);
-              alert("Error sending application. Please try again.");
-            });
-        };
-        reader.readAsDataURL(cv);
-      });
-    </script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>AOS.init();</script>
-
-    <!-- Footer -->
-    <footer class="text-center text-muted py-4">
-      <img
-      src="images/company_logo.png"
-      alt="Company Logo"
-      style="height: 90px; object-fit: contain; display: block; margin: 0 auto;"
-    />
-    <h3 class="text-white pt-2" data-aos="fade-up" style="font-size: 2.5rem; font-weight: bold; letter-spacing: 1px;">
-      Fairdebt Solutions Private Limited
-    </h3>
-      <div class="link-group mt-5" data-aos="fade-up">
-        <a href="index.html">Home</a>
-        <div class="vr"></div>
-        <a href="#about">About</a>
-        <div class="vr"></div>
-        <a href="careers.html">Careers</a>
-        <div class="vr"></div>
-        <a href="corporate.html">Corporate Information</a>
-        <div class="vr"></div>
-        <a href="#testimonial">Clients</a>
-        <div class="vr"></div>
-        <a href="#contact">Contact</a>
-    </div>
-    
-      <div class="social-links mt-5" data-aos="fade-up">
-        <!-- Instagram Button -->
-        <button 
-          class="rounded-pill instagram" 
-          onclick="visitInstagram()" 
-          title="Visit Instagram"
-          aria-label="Visit Instagram"
-        >
-          <i class="bi bi-instagram"></i>
-        </button>
-      
-        <!-- Email Button -->
-        <button 
-          class="rounded-pill email" 
-          onclick="sendEmail()" 
-          title="Send Email"
-          aria-label="Send Email"
-        >
-          <i class="bi bi-envelope"></i>
-        </button>
-      
-        <!-- Twitter Button -->
-        <button 
-          class="rounded-pill twitter" 
-          onclick="visitTwitter()" 
-          title="Visit Twitter"
-          aria-label="Visit Twitter"
-        >
-          <i class="bi bi-twitter"></i>
-        </button>
-      
-        <!-- LinkedIn Button -->
-        <button 
-          class="rounded-pill linkedin" 
-          onclick="visitLinkedIn()" 
-          title="Visit LinkedIn"
-          aria-label="Visit LinkedIn"
-        >
-          <i class="bi bi-linkedin"></i>
-        </button>
+<!-- Success Message Modal -->
+<div class="modal fade" id="successModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Application Submitted</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      
-      <!-- JavaScript for Button Actions -->
-      <script>
-        // Function for visiting Instagram
-        function visitInstagram() {
-          const instagramUrl = "https://www.instagram.com/fair_debt_solutions/";
-          window.open(instagramUrl, "_blank"); // Open Instagram in a new tab
-        }
-      
-        // Function for sending email
-        function sendEmail() {
-          const email = "superadmin@fairdebt.com";
-          const subject = "Subject";
-          const body = "Message";
-      
-          // Construct mailto link
-          const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-          // Check if the browser supports mailto
-          try {
-            window.location.href = mailtoLink;
-          } catch (error) {
-            console.error("Error while trying to open email client:", error);
-            alert("Unable to open the email client. Please manually send an email.");
+      <div class="modal-body">
+        Your application has been sent successfully. HR will contact you soon.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Initialize EmailJS
+  emailjs.init("YHPpA8WKsdQMlZF0u");
+
+  // JavaScript for form submission
+  document.getElementById("careerForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const position = document.getElementById("position").value;
+    const cv = document.getElementById("cv").files[0];
+
+    // EmailJS email parameters
+    if (!cv) {
+      alert("Please upload a CV.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function () {
+      const base64CV = reader.result.split(",")[1]; // Extract base64 string from data URL
+
+      const templateParams = {
+        to_email: "fairdebt2@gmail.com",
+        from_name: name,
+        from_email: email,
+        phone: phone,
+        position: position,
+        cv_filename: cv.name, // File name of the CV
+        cv_data: `data:${cv.type};base64,${base64CV}`, // Adding MIME type with base64
+      };
+
+      // Send email using EmailJS
+      emailjs
+        .send("service_i15deir", "template_6tlwy4z", templateParams)
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            // Show success dialog box
+            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+            myModal.show();
+
+            // Reset the form after submission
+            document.getElementById("careerForm").reset(); 
+          },
+          (error) => {
+            console.error("FAILED...", error);
+            alert("There was an error submitting your details. Please try again.");
           }
-        }
-      
-        // Function for visiting Twitter
-        function visitTwitter() {
-          const twitterUrl = "https://twitter.com/FairDebtSolutions";
-          window.open(twitterUrl, "_blank"); // Open Twitter in a new tab
-        }
-      
-        // Function for visiting LinkedIn
-        function visitLinkedIn() {
-          const linkedInUrl = "https://www.linkedin.com/company/fairdebt-solutions-private-limited/";
-          window.open(linkedInUrl, "_blank"); // Open LinkedIn in a new tab
-        }
-      </script>
-      
-      <hr class="text-muted my-4" />
+        );
+    };
+    reader.readAsDataURL(cv); // Read the file as base64
+  });
+</script>
 
-      <p>Copyright © 2025 Fairdebt Solutions Private Limited | All Rights Reserved.</p>
-    </footer>
-    <!-- footer section ends here -->
-  </body>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<!-- Footer -->
+<footer class="text-center text-muted py-4">
+  <img
+    src="images/company_logo.png"
+    alt="Company Logo"
+    style="height: 90px; object-fit: contain; display: block; margin: 0 auto;"
+  />
+  <h3 class="text-white pt-2" data-aos="fade-up" style="font-size: 2.5rem; font-weight: bold; letter-spacing: 1px;">
+    Fairdebt Solutions Private Limited
+  </h3>
+  <div class="link-group mt-5" data-aos="fade-up">
+    <a href="index.html">Home</a>
+    <div class="vr"></div>
+    <a href="#about">About</a>
+    <div class="vr"></div>
+    <a href="careers.html">Careers</a>
+    <div class="vr"></div>
+    <a href="corporate.html">Corporate Information</a>
+    <div class="vr"></div>
+    <a href="#testimonial">Clients</a>
+    <div class="vr"></div>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="social-links mt-5" data-aos="fade-up">
+    <!-- Instagram Button -->
+    <button 
+      class="rounded-pill instagram" 
+      onclick="visitInstagram()" 
+      title="Visit Instagram"
+      aria-label="Visit Instagram"
+    >
+      <i class="bi bi-instagram"></i>
+    </button>
+  
+    <!-- Email Button -->
+    <button 
+      class="rounded-pill email" 
+      onclick="sendEmail()" 
+      title="Send Email"
+      aria-label="Send Email"
+    >
+      <i class="bi bi-envelope"></i>
+    </button>
+  
+    <!-- Twitter Button -->
+    <button 
+      class="rounded-pill twitter" 
+      onclick="visitTwitter()" 
+      title="Visit Twitter"
+      aria-label="Visit Twitter"
+    >
+      <i class="bi bi-twitter"></i>
+    </button>
+  
+    <!-- LinkedIn Button -->
+    <button 
+      class="rounded-pill linkedin" 
+      onclick="visitLinkedIn()" 
+      title="Visit LinkedIn"
+      aria-label="Visit LinkedIn"
+    >
+      <i class="bi bi-linkedin"></i>
+    </button>
+  </div>
+  
+  <!-- JavaScript for Button Actions -->
+  <script>
+    // Function for visiting Instagram
+    function visitInstagram() {
+      const instagramUrl = "https://www.instagram.com/fair_debt_solutions/";
+      window.open(instagramUrl, "_blank"); // Open Instagram in a new tab
+    }
+
+    // Function for sending email
+    function sendEmail() {
+      const email = "fairdebt2@gmail.com";
+      const subject = "Subject";
+      const body = "Message";
+
+      // Construct mailto link
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Check if the browser supports mailto
+      try {
+        window.location.href = mailtoLink;
+      } catch (error) {
+        console.error("Error while trying to open email client:", error);
+        alert("Unable to open the email client. Please manually send an email.");
+      }
+    }
+
+    // Function for visiting Twitter
+    function visitTwitter() {
+      const twitterUrl = "https://twitter.com/FairDebtSolutions";
+      window.open(twitterUrl, "_blank"); // Open Twitter in a new tab
+    }
+
+    // Function for visiting LinkedIn
+    function visitLinkedIn() {
+      const linkedInUrl = "https://www.linkedin.com/company/fairdebt-solutions-private-limited/";
+      window.open(linkedInUrl, "_blank"); // Open LinkedIn in a new tab
+    }
+  </script>
+  
+  <hr class="text-muted my-4" />
+
+  <p>Copyright © 2025 Fairdebt Solutions Private Limited | All Rights Reserved.</p>
+</footer>
+<!-- footer section ends here -->
+</body>
 </html>
