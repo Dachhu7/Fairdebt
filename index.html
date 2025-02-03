@@ -411,41 +411,43 @@
   </section>
   
 
-    <!-- Contact Section Starts -->
-    <section class="contact py-5" id="contact">
-      <div class="heading text-center">
-        <small>Get in Touch</small>
-        <h3>Any Questions? Feel Free to Contact</h3>
-      </div>
-      <div class="row justify-content-evenly mt-5">
-        <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-geo-alt-fill"></i>
-            </div>
-            <div class="col-11">
-              <p>2744, 15th cross, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102</p>
-            </div>
+  <!-- Contact Section Starts -->
+  <section class="contact py-5" id="contact">
+    <div class="heading text-center">
+      <small>Get in Touch</small>
+      <h3>Any Questions? Feel Free to Contact</h3>
+    </div>
+    <div class="row justify-content-evenly mt-5">
+      <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
+        <div class="row justify-content-evenly">
+          <div class="col-1">
+            <i class="bi bi-geo-alt-fill"></i>
           </div>
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-send-fill"></i>
-            </div>
-            <div class="col-11">
-              <p>superadmin@fairdebt.in</p>
-            </div>
-          </div>
-          <div class="row justify-content-evenly">
-            <div class="col-1">
-              <i class="bi bi-globe-americas"></i>
-            </div>
-            <div class="col-11">
-              <p>fairdebt.in</p>
-            </div>
+          <div class="col-11">
+            <p>2744, 15th cross, 1st Sector, HSR Layout, Bengaluru, Karnataka 560102</p>
           </div>
         </div>
-        <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
-          <div class="contact-form">
+        <div class="row justify-content-evenly">
+          <div class="col-1">
+            <i class="bi bi-send-fill"></i>
+          </div>
+          <div class="col-11">
+            <p>superadmin@fairdebt.in</p>
+          </div>
+        </div>
+        <div class="row justify-content-evenly">
+          <div class="col-1">
+            <i class="bi bi-globe-americas"></i>
+          </div>
+          <div class="col-11">
+            <p>fairdebt.in</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
+        <div class="contact-form">
+          <!-- Add the form tag with an ID here -->
+          <form id="contactForm">
             <div class="mb-3">
               <input
                 type="text"
@@ -481,44 +483,74 @@
             <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" id="submitBtn">
               Submit
             </button>
-          </div>
+          </form>
         </div>
       </div>
-    </section>
-    <!-- Contact Section Ends Here -->
+    </div>
+  </section>
+  <!-- Contact Section Ends Here -->
 
-    <script type="text/javascript">
-      // Initialize EmailJS
-      emailjs.init('YOUR_USER_ID'); // Replace 'YOUR_USER_ID' with your EmailJS User ID
+  <!-- Success Dialog Box -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Success!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Thank you for contacting us! Your details have been successfully submitted.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      document.getElementById('submitBtn').addEventListener('click', function(e) {
-        e.preventDefault();
+  <script>
+    // Initialize EmailJS
+    emailjs.init("YHPpA8WKsdQMlZF0u");
 
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const mobile = document.getElementById('mobile').value;
-        const message = document.getElementById('message').value;
+    // JavaScript for form submission
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent default form submission
 
-        // Create the email parameters
-        const templateParams = {
-          from_name: name,
-          from_email: email,
-          from_mobile: mobile,
-          message: message,
-        };
+      // Get form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const mobile = document.getElementById("mobile").value;
+      const message = document.getElementById("message").value;
 
-        // Send email using EmailJS
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-          .then(function(response) {
-            alert('Message sent successfully!');
-            // Optionally, you can reset the form here
-            document.querySelector('form').reset();
-          }, function(error) {
-            alert('Failed to send message. Please try again later.');
-          });
-      });
-    </script>
+      // EmailJS email parameters
+      const emailParams = {
+        from_name: name,
+        email: email,
+        mobile: mobile,
+        message: message,
+      };
+
+      // Send email using EmailJS
+      emailjs
+        .send("service_i15deir", "template_knn971z", emailParams)
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            // Show success dialog box
+            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+            myModal.show();
+
+            // Reset the form after submission
+            document.getElementById("contactForm").reset(); 
+          },
+          (error) => {
+            console.error("FAILED...", error);
+            alert("There was an error submitting your details. Please try again.");
+          }
+        );
+    });
+  </script>
+
 
 
     <!-- Back to Top Button -->
@@ -603,10 +635,11 @@
           const instagramUrl = "https://www.instagram.com/fair_debt_solutions/";
           window.open(instagramUrl, "_blank"); // Open Instagram in a new tab
         }
-      
+
+        <!-- JavaScript for Button Actions -->
         // Function for sending email
         function sendEmail() {
-          const email = "superadmin@fairdebt.com";
+          const email = "fairdebt2@gmail.com";
           const subject = "Subject";
           const body = "Message";
       
@@ -660,14 +693,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- AOS Library JavaScript Link  -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Include AOS library script if it's not already included -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      // Initializing AOS Library
-      AOS.init({
-        duration: 1000,
-        offset: 50,
-      });
+      AOS.init();
     </script>
     <!-- Custom JS File Linking -->
     <script src="js/script.js"></script>
