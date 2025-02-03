@@ -1,9 +1,10 @@
-/* appling google font over the website  */
-body{
+/* Applying Google font over the website */
+body {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     background-color: white;
 }
+
 body, html {
     margin: 0;
     padding: 0;
@@ -11,29 +12,31 @@ body, html {
     overflow-x: hidden;
 }
 
-/* styling menu icon */
+/* Styling menu icon */
 #navbar-top {
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: #ffffff;
-  }
+}
 
-.nav-menu{
+.nav-menu {
     border: none;
     background-color: #028285;
     font-size: 1.5rem;
     color: #fca61f;
 }
 
-.navbar-nav a{
+.navbar-nav a {
     color: black;
     position: relative;
 }
-.navbar-nav a:hover{
+
+.navbar-nav a:hover {
     color: #fca61f;
 }
-.navbar-nav a:after {    
+
+.navbar-nav a:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -45,35 +48,43 @@ body, html {
     background: #fca61f;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
-  }
-.navbar-nav a:hover:after { 
-    width: 100%; 
-    left: 0; 
-  }
-  /* styling contact btn  */
-.c-btn{
+}
+
+.navbar-nav a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+/* Styling contact btn */
+.c-btn {
     border: none;
     background: #007bff;
     color: #fff;
     font-size: 1.2rem;
 }
+
 .home-title {
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
 }
-.home-text, .home-list {
+
+.home-text,
+.home-list {
     text-align: center;
     font-size: 1.5rem;
 }
+
 .home-text1 {
     text-align: center;
     font-size: 1rem;
 }
+
 .home-btns {
     text-align: center;
 }
+
 .highlight {
     background: linear-gradient(90deg, #0091ff, #da1b60);
     -webkit-background-clip: text;
@@ -86,7 +97,6 @@ body, html {
     text-align: center;
     padding: 30px;
     border-radius: 10px;
-    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
     margin: 20px auto;
     max-width: 700px;
 }
@@ -94,41 +104,44 @@ body, html {
 /* Carousel Buttons at the Bottom */
 .carousel-controls button {
     background: transparent;
-    border: none;              
-    outline: none;       
+    border: none;
+    outline: none;
     padding: 0;
     position: absolute;
-  }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    visibility: visible; 
-  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    visibility: visible;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .home-title {
         font-size: 2rem;
     }
+
     .carousel-content {
         padding: 20px;
         font-size: 0.9rem;
     }
 }
 
-.h-btn:hover{
+.h-btn:hover {
     background: #6f34fe;
     color: #fff;
     transform: translateY(-20px);
     transition-duration: 1s;
 }
-.link{
+
+.link {
     text-decoration: none;
     font-size: 1.2rem;
     color: #fca61f;
     position: relative;
 }
-.link::after{
+
+.link::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -141,73 +154,83 @@ body, html {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
-.link:hover{
+
+.link:hover {
     color: #6f34fe;
 }
-.link:hover::after{
+
+.link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
 
 @keyframes floatimg {
-    0%{
+    0% {
         transform: translateX(0);
     }
-    50%{
+    50% {
         transform: translateX(-24px);
     }
-    100%{
+    100% {
         transform: translateX(0);
     }
 }
 
-/* expertise section starts */
+/* Expertise section starts */
 .service-card .img img {
     width: 180px;
     height: auto;
     display: block;
     margin: 0 auto;
-  }
-.heading small{
+}
+
+.heading small {
     color: #6f34fe;
     font-size: 1.5rem;
     font-weight: 600;
 }
-.heading h3{
+
+.heading h3 {
     margin-top: 0.5rem;
     color: #3f396d;
     font-size: 2.5rem;
     font-weight: 700;
 }
-.expertise h4{
+
+.expertise h4 {
     color: #3f396d;
     font-weight: 700;
 }
-.expertise a{
+
+.expertise a {
     text-decoration: none;
     color: #fca61f;
 }
-.expertise a:hover{
+
+.expertise a:hover {
     color: #6f34fe;
 }
-.expertise .service-card{
+
+.expertise .service-card {
     text-align: center;
     padding: 15px 15px;
     border-radius: 0.7rem;
 }
 
-/* skill section starts */
-.progress-card{
+/* Skill section starts */
+.progress-card {
     padding: 12% 10% 10% 15%;
     background-color: #fff;
     text-align: center;
     border-radius: 10%;
 }
-.progress-card:hover{
-    transform: scale(1.1,1.1);
+
+.progress-card:hover {
+    transform: scale(1.1, 1.1);
     transition-duration: 0.6s;
 }
-.circular-progress{
+
+.circular-progress {
     position: relative;
     height: 130px;
     width: 130px;
@@ -217,7 +240,8 @@ body, html {
     align-items: center;
     justify-content: center;
 }
-.circular-progress::before{
+
+.circular-progress::before {
     content: "";
     position: absolute;
     height: 120px;
@@ -225,119 +249,139 @@ body, html {
     border-radius: 50%;
     background-color: #fff;
 }
-.progress-value{
+
+.progress-value {
     position: relative;
     font-size: 1.5rem;
     font-weight: 600;
 }
-.html-progress{
+
+.html-progress {
     color: #fca61f;
 }
-.javascript-progress{
+
+.javascript-progress {
     color: #6f34fe;
 }
-.php-progress{
+
+.php-progress {
     color: #20c997;
 }
-.reactjs-progress{
+
+.reactjs-progress {
     color: #3f396d;
 }
-.text{
+
+.text {
     font-size: 1.2rem;
     font-weight: 500;
 }
-.heading p{
+
+.heading p {
     font-size: 1.3rem;
 }
+
 /* Animation for sliding image from left */
 .animate-left {
     animation: slideInLeft 1s ease-out forwards;
     opacity: 0; /* Make it invisible initially */
-  }
+}
 
-  @keyframes slideInLeft {
+@keyframes slideInLeft {
     0% {
-      transform: translateX(-100%);
-      opacity: 0;
+        transform: translateX(-100%);
+        opacity: 0;
     }
     100% {
-      transform: translateX(0);
-      opacity: 1;
+        transform: translateX(0);
+        opacity: 1;
     }
-  }
+}
 
-/* testimonial section starts */
-.testimonial img:hover{
-    transform: scale(1.2,1.2);
+/* Testimonial section starts */
+.testimonial img:hover {
+    transform: scale(1.2, 1.2);
     transition-duration: 1s;
 }
-.testimonial h4{
+
+.testimonial h4 {
     color: #3f396d;
 }
-.testimonial i{
+
+.testimonial i {
     font-size: 2.9rem;
     color: #fca61f;
-    
 }
-.testimonial .nextprev-btn{
+
+.testimonial .nextprev-btn {
     border: none;
     background-color: #fff;
 }
-.prev:hover,.prev-btn:hover{
-    color:#6f34fe;
+
+.prev:hover,
+.prev-btn:hover {
+    color: #6f34fe;
     transform: translateX(-10px);
     transition-duration: 1s;
 }
-.next:hover,.next-btn:hover{
-    color:#6f34fe;
+
+.next:hover,
+.next-btn:hover {
+    color: #6f34fe;
     transform: translateX(10px);
     transition-duration: 1s;
 }
-
 
 .service-card1 .img img {
     width: 100px;
     height: auto;
     display: block;
     margin: 0 auto;
-  }
+}
 
-  
-/* blog section starts */
-.blog{
+/* Blog section starts */
+.blog {
     background-color: #f2f2ff;
 }
-.blog .blogpost .card{
+
+.blog .blogpost .card {
     border: none;
     border-radius: 5%;
 }
-.nav-bg{
+
+.nav-bg {
     background-color: #fff;
 }
 
-.blog .blogpost small{
+.blog .blogpost small {
     color: #6f34fe;
     font-size: 1.1rem;
 }
-.blog .blogpost h4,.blogpost a{
+
+.blog .blogpost h4,
+.blogpost a {
     color: #3f396d;
     font-weight: 700;
     margin-top: 1rem;
     text-decoration: none;
 }
-.blogpost a:hover{
+
+.blogpost a:hover {
     color: #fca61f;
 }
-.blog .blogpost .read-more-btn{
+
+.blog .blogpost .read-more-btn {
     text-decoration: none;
     color: #fca61f;
     font-size: 1.1rem;
 }
-.blog .blogpost .read-more-btn:hover{
+
+.blog .blogpost .read-more-btn:hover {
     color: #6f34fe;
 }
-/* styling modal group  */
-.btn-c{
+
+/* Styling modal group */
+.btn-c {
     margin-left: 94%;
     background-color: transparent;
     border: none;
@@ -345,40 +389,47 @@ body, html {
     font-size: 2rem;
     margin-top: -3%;
 }
-.btn-c i{
+
+.btn-c i {
     color: #007bff;
 }
-.modal-body .content span{
+
+.modal-body .content span {
     font-size: 1rem;
 }
-.modal-body .content small{
+
+.modal-body .content small {
     font-size: 1rem;
     color: #6f34fe;
 }
-/* contact form */
-.contact-details i{
+
+/* Contact form */
+.contact-details i {
     font-size: 1.5rem;
     color: #007bff;
 }
-.contact-details p{
+
+.contact-details p {
     font-size: 1.2rem;
     margin-left: 1rem;
 }
-.contact-form .form-control:focus{
+
+.contact-form .form-control:focus {
     box-shadow: none;
     border: 1px solid #007bff;
 }
-.contact-form .form-control{
+
+.contact-form .form-control {
     padding: 10px 10px;
     width: 80%;
 }
 
-/* footer section starts */
-footer{
+/* Footer section starts */
+footer {
     background-color: #2C3E50;
 }
-  
-footer .link-group a{
+
+footer .link-group a {
     margin-left: 10px;
     margin-right: 10px;
     text-decoration: none;
@@ -386,45 +437,50 @@ footer .link-group a{
     font-size: 1.1rem;
     margin-top: 1rem;
 }
-footer .link-group a:hover{
+
+footer .link-group a:hover {
     color: #fca61f;
 }
-.social-links button{
+
+.social-links button {
     border: none;
     margin-right: 1rem;
     font-size: 1.2rem;
     background-color: #fff;
     padding: 14px 15px 10px 15px;
 }
-.social-links .dribble{
+
+.social-links .dribble {
     color: #f33a7e;
 }
-.social-links button:hover{
+
+.social-links button:hover {
     color: #fff;
     transform: translateY(-20px);
     transition-duration: 1s;
 }
+
 .social-links .instagram:hover {
     background-color: #E4405F;
-  }
+}
 
-  .social-links .email:hover {
+.social-links .email:hover {
     background-color: #007bff;
-  }
+}
 
-  .social-links .twitter:hover {
+.social-links .twitter:hover {
     background-color: #1DA1F2;
-  }
+}
 
-  .social-links .linkedin:hover {
+.social-links .linkedin:hover {
     background-color: #0077b5;
-  }
+}
 
-  .social-links button i {
+.social-links button i {
     pointer-events: none;
-  }
+}
 
-/* styling back to top button */
+/* Styling back to top button */
 #btn-back-to-top {
     position: fixed;
     bottom: 40px;
